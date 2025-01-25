@@ -108,7 +108,7 @@ impl<'instance> Function<'instance> {
         // Maintain sufficient allocated space in the vector rather than just declaring its capacity.
         let result_count =
             unsafe { wasm_func_get_result_count(self.function, instance.get_inner_instance()) };
-        argv.resize(std::cmp::max(param_count, result_count * 2) as usize, 0);
+        argv.resize(core::cmp::max(param_count, result_count * 2) as usize, 0);
 
         let call_result: bool;
         unsafe {
